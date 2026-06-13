@@ -1,0 +1,700 @@
+body{
+    width: 100%;
+    height: 100%;
+    background-color:white;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+
+/* Header Section */
+#header{
+    width: 100%;
+    height: 15vh;
+    background-color: rgb(93, 21, 50);
+    position: fixed;
+}
+.container{
+    padding: 10px 10%;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.logo{
+    width: 130px;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 25px;
+    font-style: italic;
+    position: relative;
+}
+
+nav ul li a::after{
+    content: '';
+    width : 0;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+
+nav ul li a:hover::after{
+    width: 100%;
+    font-size: 30px;
+    font-style: italic;
+}
+
+
+
+
+
+
+/* Home */
+
+.container1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 150px;
+}
+.greeting{
+    font-size: 20px;
+    font-style: italic;
+    padding-left: 20px;
+    text-align: center;
+    margin-right: 55px;
+}
+.main-image{
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: 70px;
+}
+.hospital-image{
+    padding-right: 40px;
+}
+.main-greeting{
+    font-size: 80px;
+    font-style: italic;
+    color: rgb(93, 21, 50);
+}
+.h1h2{
+    color: rgb(93, 21, 50);
+    text-align: center;
+}
+
+
+/* About */
+
+#about{
+    padding: 80px 0;
+
+}
+.container2{
+    background-color: rgb(93, 21, 50);
+    border-radius: 35px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* background-color: rgb(17, 17, 92); */
+    border-radius: 35px;
+}
+#Ab-us{
+    text-align: center;
+}
+.image{
+    flex-basis: 35%;
+}
+.image img{
+    width: 100%;
+    border-radius: 15%;
+    padding-left: 20px;
+    padding-top: 22px;
+}
+.text{
+    flex-basis: 60%;
+}
+#Ab-us{
+    padding-top: 0px;
+    font-size: 60px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 5px;
+    color:whitesmoke; 
+}
+#ab-text{
+    font-size: 22px;
+    font-style: italic;
+    padding-right: 15px;
+    padding-top: 8px;
+    text-align: justify;
+    color: whitesmoke;
+}
+h2{
+   color: rgb(93, 21, 50);
+}
+
+
+
+
+/* Services */
+
+#services{
+    padding: 30px 0;
+    border-style: solid;
+    border-color: rgb(93, 21, 50);
+    border-radius: 35px;
+    border-width: 5px;
+    
+}
+
+.services-list{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 40px;
+    margin-top: 50px;
+    padding: 0px 35px;
+}
+h1{
+    padding-left: 50px;
+    font-size: 60px;
+    font-style: italic;
+    font-weight: 600;
+    color:rgb(93, 21, 50);
+}
+.services-list div{
+    background-color: rgb(93, 21, 50);
+    padding: 40px;
+    font-size: 15px;
+    font-style: italic;
+    border-radius: 15px;
+    transition: background 0.5s, transform 0.5s;
+}
+#serve{
+    text-align: center;
+}
+h2{
+    color: whitesmoke;
+    text-align: center;
+}
+.services-list div:hover{
+    transform: translate(-20px);
+    background-color:  rgb(93, 21, 50);
+}
+.fa-solid{
+    color: white;
+    font-size: 25px;
+    font-style: italic;
+}
+
+
+
+
+
+/* Doctors */
+
+#doctors{
+    border-style: solid;
+    border-radius: 35px;
+    background-color: rgb(93, 21, 50);
+}
+
+.expert{
+    text-align: center;
+    font-size: 25px;
+    font-style: italic;
+    color: rgb(93, 21, 50);
+}
+.doc-name{
+    text-align: center;
+    color:rgb(3, 0, 0);
+}
+
+.heading{
+    text-align: center;
+    color: whitesmoke;
+}
+.container4{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 30px;
+    margin-top: 50px;
+    padding: 0px 35px;
+    padding-bottom: 30px;
+}
+#doctor{
+    border-style: solid;
+    background-color: whitesmoke;
+    padding: 30px;
+    text-align: center;
+    border-radius: 15px;
+}
+#doctor img{
+    width: 80%;
+    transition: transform 0.5s;
+}
+#doctor:hover img{
+    transform: scale(1.1);
+}
+.doc-image{
+    width: 100%;
+    height: 50vh;
+}
+
+/* appointment */
+#appointment{
+    margin-top: 45px;
+} 
+.appoint{
+    text-align: center;
+}
+.container5{
+    display: flex;
+    border-style: solid;
+    border-color: rgb(93, 21, 50);
+    padding: 0px;
+    border-radius: 15px;
+    border-width: 5px;
+}
+.booking .box{
+    width: 70%;
+    margin: .7rem 0;
+    border-radius: .5rem;
+    font-size: 1.6rem;
+    font-style: italic;
+    text-transform: none;
+    border-color: whitesmoke;
+
+}
+.box:hover{
+    background-color: rgb(236, 220, 220);
+    
+}
+.booking h3{
+    color: whitesmoke;
+
+    font-size: 2rem;
+    font-style: italic;
+}
+.appimage{
+    flex-basis: 50%;
+    text-align: center;
+    align-items:baseline
+}
+.appointment-image{
+    width: 90%;
+    margin-top: 20px;
+}
+.booking{
+    flex-basis: 50%;
+    background-color:  rgb(93, 21, 50);
+    text-align: center;
+    border-top-right-radius: 13px;
+    border-bottom-right-radius: 13px;
+    padding: 20px 10px;
+}
+#btn{
+    width: 20%;
+    padding: 10px;
+    font-size: 15px;
+    font-style: italic;
+    border-radius: 15px;
+    margin-top: 20px;
+    font-weight: bolder;
+    color:  rgb(93, 21, 50);
+}
+#btn:hover{
+    background-color: rgb(93, 21, 50);
+    color: whitesmoke;
+}
+#btn:active{
+    color: gold;
+}
+
+
+/* awards */
+#awards{
+    border-style: solid;
+    background-color: rgb(93, 21, 50);
+    margin-top: 35px;
+    border-radius: 15px;
+}
+#reward{
+    text-align: center;
+    color: whitesmoke;
+
+}
+.text h1{
+    color: whitesmoke;
+    text-decoration: none;
+}
+.text a{
+    text-decoration: none;
+}
+.text :hover{
+    color: rgb(190, 161, 125);
+}
+
+
+
+/* contact */
+#contact{
+    margin-top: 45px;
+    padding: 5px;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 5px;
+    background-color:rgb(93, 21, 50) ;
+
+}
+.contact-us{
+    text-align: center;
+    color: white;
+    font-size: 60px;
+    font-style: italic;
+    text-decoration: underline;
+}
+.container7{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 30px;
+    padding: 0px 35px;
+}
+
+.why{
+    text-align: center;
+    background-color:rgb(93, 21, 50) ;
+    color: whitesmoke;
+    border-radius: 15px;
+}
+.wc{
+    color: whitesmoke;
+    padding-right: 15px;
+    font-size: 40px;
+    font-style: italic;
+}
+.timings{
+    text-align: center;
+    background-color:rgb(93, 21, 50) ;
+    color: whitesmoke;
+    border-radius: 15px;
+}
+.tim{
+    color: whitesmoke;
+    padding-right: 22px;
+    font-size: 40px;
+}
+.address{
+    text-align:center;
+    background-color:rgb(93, 21, 50) ;
+    color: whitesmoke;
+    border-radius: 15px;
+}
+.add{
+    color: whitesmoke;
+    padding-right: 40px;
+    font-size: 40px;
+}
+.adrs h3 a{
+    color: azure;
+}
+/* #hovering{
+    transition: background 0.5s, transform 0.5s;
+}
+#hovering:hover{
+    transform: translateY(-15px);
+} */
+
+/* Doctors Personal Profile */
+.doc-personal-profile{
+    width: 50%;
+    border-style: solid;
+    border-width: 5px;
+    border-color: rgb(93, 21, 50) ;
+    border-radius: 25px;
+    margin-top: 35px;
+    margin-left: 25%;
+    justify-content: center;
+    align-items: center;
+}
+.doc-container{
+    display: flex;
+    padding: 20px 25px;
+}
+.doc-personal-image{
+    flex-basis: 35%;
+}
+.doc-profile{
+    flex-basis: 60%;
+    margin-left: 50px;
+    background-color: rgb(93, 21, 50) ;
+    color: white;
+    border-radius: 25px;
+}
+.doc-profile h4{
+    margin-left: 50px;
+}
+.docs-image{
+    width: 90%;
+    height: 40vh;
+    margin-left: 15px;
+    border-radius: 25px;
+}
+
+
+nav .fa-solid{
+    display: none;
+}
+/* Responsiveness */
+@media screen and (max-width : 600px) {
+
+    /* body */
+    body{
+        padding-right: 15px;
+    }
+
+    /* header */
+    nav .fa-solid{
+        display: block;
+        font-size: 40px;
+        font-style: italic;
+    }
+
+
+    nav ul{
+        background-color: rgb(187, 187, 242);
+        position: fixed;
+        top: 0;
+        right: -250px;
+        width: 200px;
+        height: 100vh;
+        padding-top: 50px;
+        z-index: 2;
+        transition: right 0.5s;
+    }
+
+    nav ul li{
+        display: block;
+        margin: 25px;
+
+    }
+    nav ul li a{
+        color: rgb(93, 21, 50) ;
+        font-size: 30px;
+        font-style: italic;
+        font-weight: bold;
+    }
+
+    nav ul .fa-solid{
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        cursor: pointer;
+    }
+    .fa-bars{
+         color: white;
+    }
+
+
+
+    /* home */
+    #home{
+        width: 210%;
+    }
+    .container1{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+    .h1h2{
+        text-align: center;
+    }
+    #tag-line{
+        font-size: 60px;
+        font-style: italic;
+    }
+    .hospital-image{
+        text-align: center;
+    }
+    .main-image{
+        padding-right: 20px;
+    }
+    
+
+
+    /* about */
+    #about{
+        width: 215%;
+    }
+    .container2{
+        width: 100%;
+    }
+    .row{
+        /* width: 100%; */
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .dental-image{
+        margin-left: 48px;
+    }
+    .image img{
+        width: 80%;
+    }
+    .text{
+        width: 90%;
+        /* padding-left: 25px; */
+        padding: 10px 20px;
+        margin-left: 20px;
+    }
+    #ab-text{
+        font-size: 30px;
+        font-style: italic;
+        text-align: justify;
+    }
+
+
+
+
+    /* footer responsiveness */
+    #contact{
+        width: 210%;
+        margin-right: 10px;
+    }
+    .container7{
+        display:grid;
+        grid-template-columns: repeat(1,1fr);
+
+    }
+    #contact{
+        border-radius: 35px;
+    }
+
+
+
+    /* services */
+
+    #services{
+        width: 210%;
+    }
+
+    .services-list{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .services-list div:hover{
+        transform: translate(-20px);
+        background-color:  rgb(84, 66, 129);
+    }
+    .services-list div{
+        background-color: rgb(93, 21, 50);
+        padding: 40px;
+        font-size: 15px;
+        font-style: italic;
+        border-radius: 15px;
+        transition: background 0.5s, transform 0.5s;
+    }
+
+
+    /* doctors */
+
+    #doctors{
+        width: 213%;
+    }
+
+    .container4{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    #doctor img{
+        width: 60%;
+        transition: transform 0.5s;
+    }
+    #doctor:hover img{
+        transform: scale(1.1);
+    }
+
+
+    /* appointment */
+
+    .container5{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+    #appointment{
+        width: 213%;
+    }
+    .booking{
+        border-top-right-radius: 0px;
+    }
+
+    /* awards */
+    #awards{
+        width: 213%;
+    }
+
+
+    /* Doctors Personal Profile */
+    .doc-container{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        padding: 20px 25px;
+    }
+
+    .doc-personal-profile{
+        width: 100%;
+        margin-left: 0;
+    }
+    .doc-profile{
+        width: 90%;
+        margin-left: 16px;
+    }
+
+}
+/* This makes the bubble float in the corner */
+#ai-chat-bubble {
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    width: 70px !important;
+    height: 70px !important;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 9999;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* This shrinks the huge tooth image */
+#ai-chat-bubble img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    display: block;
+}
