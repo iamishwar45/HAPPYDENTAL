@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Happy Dental Hospital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --maroon: #800000;
+            --dark-blue: #2c3e50;
+            --cream: #fffaf0;
+            --light-grey: #f4f4f4;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        
+        body { 
+            background-color: var(--light-grey); 
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- HEADER STYLING --- */
+        header {
+            background: var(--dark-blue);
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            height: 50px;
+            border-radius: 5px;
+        }
+
+        .hospital-name {
+            font-size: 1.2rem;
+            font-weight: 700; /* Bold as per request */
+            color: #ffffff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* --- LOGIN CONTAINER --- */
+        .login-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .login-card {
+            background: white;
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--maroon);
+        }
+
+        .login-card h2 {
+            text-align: center;
+            color: var(--maroon);
+            margin-bottom: 30px;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--dark-blue);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--maroon);
+            box-shadow: 0 0 5px rgba(128, 0, 0, 0.1);
+        }
+
+        .login-btn {
+            width: 100%;
+            background: var(--maroon);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover {
+            background: #600000;
+            transform: translateY(-2px);
+        }
+
+        .footer-links {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.85rem;
+        }
+
+        .footer-links a {
+            color: var(--maroon);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer {
+            background: #f1f1f1;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <!-- Updated path from image_8.png reference -->
+            <img src="../static/social media/logo.jpeg" alt="Logo" class="logo">
+            <h2 class="hospital-name">HAPPY DENTAL</h2>
+        </div>
+        <div class="nav-links">
+            <a href="/index"><i class="fa-solid fa-house"></i> Home</a>
+        </div>
+    </header>
+
+    <div class="login-wrapper">
+        <div class="login-card">
+            <h2>*** USER LOGIN ***</h2>
+            <form action="/login_process" method="POST">
+                <div class="form-group">
+                    <label>Gmail Address / Username</label>
+                    <input type="text" name="username" placeholder="example@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="Enter your password" required>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 20px;">
+                    <input type="checkbox" id="remember">
+                    <label for="remember" style="margin: 0; font-size: 0.85rem; font-weight: 400;">Keep me logged in</label>
+                </div>
+
+                <button type="submit" class="login-btn">LOGIN NOW &rarr;</button>
+            </form>
+
+            <div class="footer-links">
+                <p>Forgot Password? <a href="#">Click here</a></p>
+                <p style="margin-top: 5px;">New Patient? <a href="/appointment">Register here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Happy Dental Hospital. All rights reserved.
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Dental Hospital | Expert Care</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --maroon: #800000;
+            --dark-header: #2c3e50; 
+            --dark: #1a1a1a;
+            --purple-ai: #7b1fa2;
+            --cream: #fffaf0;
+            --light-grey: #f4f4f4; /* Added for utility bar background */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: white; color: var(--dark); overflow-x: hidden; }
+
+        /* --- NEW UTILITY BAR STYLE --- */
+        .top-utility-bar {
+            background: var(--light-grey);
+            padding: 5px 8%;
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .top-utility-bar a {
+            text-decoration: none;
+            color: var(--dark-header);
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .top-utility-bar a:hover { color: var(--maroon); }
+
+        /* --- NAVIGATION --- */
+        header {
+            background: var(--dark-header);
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-container { display: flex; align-items: center; gap: 15px; }
+        .logo { height: 50px; border-radius: 5px; }
+        
+        .nav-links { list-style: none; display: flex; gap: 25px; align-items: center; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: #ffffff; 
+            font-weight: 500; 
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: #f39c12; }
+        
+        .btn-nav {
+            background: var(--maroon);
+            color: white !important;
+            padding: 10px 22px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            background: linear-gradient(135deg, #fff 50%, var(--cream) 50%);
+        }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 4rem; color: var(--maroon); line-height: 1.1; margin-bottom: 20px; }
+        .hero-text p { font-size: 1.2rem; color: #555; margin-bottom: 30px; border-left: 4px solid var(--maroon); padding-left: 15px; }
+        
+        .hero-img { flex: 1; text-align: right; }
+        .hero-img img { width: 90%; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; box-shadow: 20px 20px 0 var(--maroon); }
+
+        /* --- ABOUT SECTION --- */
+        .about { padding: 80px 8%; display: flex; gap: 50px; align-items: center; }
+        .about-content { flex: 1; }
+        .about-content h2 { color: var(--maroon); font-size: 2.5rem; margin-bottom: 20px; }
+        .feature-tag { background: #ffebeb; color: var(--maroon); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; display: inline-block; }
+
+        /* --- DOCTORS SECTION --- */
+        .doctors-section { padding: 80px 8%; background: var(--cream); text-align: center; }
+        .doc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .doc-card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 20px;
+            transition: 0.4s;
+            border: 1px solid #eee;
+        }
+        .doc-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .doc-icon { font-size: 3.5rem; color: var(--maroon); margin-bottom: 20px; }
+        .doc-card h3 { color: var(--maroon); margin-bottom: 10px; }
+        .doc-card span { color: #7b1fa2; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; }
+
+        /* --- FOOTER --- */
+        footer { background: var(--maroon); color: white; padding: 60px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        footer h3 { margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 10px; }
+        footer p, footer li { font-size: 0.9rem; opacity: 0.8; margin-bottom: 10px; list-style: none; }
+        footer i { margin-right: 10px; }
+
+        /* --- AI CHATBOT --- */
+        #chat-window {
+            display: none; position: fixed; bottom: 100px; right: 30px; 
+            width: 330px; height: 480px; background: white; border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 9999; flex-direction: column; overflow: hidden;
+        }
+        .chat-header { background: var(--purple-ai); color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        
+        #ai-chat-container { 
+            position: fixed; bottom: 30px; right: 30px; z-index: 9999; 
+            cursor: pointer; display: flex; flex-direction: column; align-items: center; 
+        }
+        .ai-bubble { 
+            background: white; border-radius: 50%; width: 75px; height: 75px; 
+            display: flex; align-items: center; justify-content: center; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); border: 2px solid var(--purple-ai);
+        }
+        .ai-label { background: var(--purple-ai); color: white; padding: 4px 12px; border-radius: 15px; font-size: 10px; margin-top: -5px; position: relative; z-index: 2; }
+    </style>
+</head>
+<body>
+
+    <!-- --- NEW UTILITY BAR (LOGIN & SUPPORT) --- -->
+    <div class="top-utility-bar">
+        <a href="/login"><i class="fa-solid fa-user-lock"></i> Patient Login</a>
+        <a href="/support"><i class="fa-solid fa-headset"></i> Support</a>
+    </div>
+
+    <header>
+        <div class="logo-container">
+            <img src="../static/social media/logo.jpeg" class="logo">
+            <h2 style="font-size: 1.2rem; color: #ffffff;">HAPPY DENTAL</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/index">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/doctors">Doctors</a></li>
+            <li><a href="/awards">Awards</a></li>
+            <li><a href="/appointment" class="btn-nav">Book Appointment</a></li>
+        </ul>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <span class="feature-tag">Now in Mumbai</span>
+            <h1>HAPPY DENTAL <br>HOSPITAL</h1>
+            <p>*Your smile is our reward* :)</p>
+            <a href="/appointment" class="btn-nav" style="padding: 15px 40px; font-size: 1rem; border-radius: 30px;">GET STARTED</a>
+        </div>
+        <div class="hero-img">
+            <img src="../static/social media/hospital.jpeg" alt="Modern Clinic">
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="about-content">
+            <span class="feature-tag">Quality Excellence</span>
+            <h2>Advanced Dental Care <br>For Your Family</h2>
+            <p>We combine <b>Modern Laser Technology</b> with a soft touch to ensure your visit is completely painless. From pediatric care to complex oral surgeries, our team is here for you 24/7.</p>
+        </div>
+        <div style="flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div style="background: var(--maroon); color: white; padding: 20px; border-radius: 15px;">
+                <h3>99%</h3>
+                <p>Success Rate</p>
+            </div>
+            <div style="background: var(--purple-ai); color: white; padding: 20px; border-radius: 15px;">
+                <h3>24/7</h3>
+                <p>Support</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="doctors-section">
+        <span class="feature-tag">Meet the Experts</span>
+        <h2 style="font-size: 2.5rem; color: var(--maroon);">Our Certified Specialists</h2>
+        <div class="doc-grid">
+            <div class="doc-card">
+                <div class="doc-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                <span>General Dentistry</span>
+                <h3>Dr. Ishwar Singh</h3>
+                <p>BDS, MDS | 7+ Years Exp.</p>
+            </div>
+            <div class="doc-card">
+                <div class="doc-icon"><i class="fa-solid fa-stethoscope"></i></div>
+                <span>Pediatric Dentist</span>
+                <h3>Dr. Kashish</h3>
+                <p>BDS (Gold Medalist) | 4+ Years Exp.</p>
+            </div>
+            <div class="doc-card">
+                <div class="doc-icon"><i class="fa-solid fa-tooth"></i></div>
+                <span>Braces Specialist</span>
+                <h3>Dr. Siddesh</h3>
+                <p>MDS - Orthodontist | 6+ Years Exp.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <h3>* Why Choose Us</h3>
+            <ul>
+                <li><i class="fa-solid fa-check"></i> 24/7 Emergency Calls</li>
+                <li><i class="fa-solid fa-check"></i> Dental Special Offers</li>
+                <li><i class="fa-solid fa-check"></i> Painless Procedures</li>
+                <li><i class="fa-solid fa-check"></i> Affordable Dentistry</li>
+            </ul>
+        </div>
+        <div>
+            <h3>* Practice Hours</h3>
+            <p>Mon - Sat: 10:00 AM - 08:00 PM</p>
+            <p>Sunday: Closed (By Call Only)</p>
+            <p>Emergency: 24/7 Available</p>
+        </div>
+        <div>
+            <h3>* Contact Info</h3>
+            <p><i class="fa-solid fa-location-dot"></i> 1-21-7/1, Mumbai, Maharashtra</p>
+            <p><i class="fa-solid fa-phone"></i> +91 6378579899</p>
+            <p><i class="fa-solid fa-envelope"></i> happydentalclinic@gmail.com</p>
+            <div style="display: flex; gap: 15px; font-size: 1.2rem; margin-top: 10px;">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- --- AI CHATBOT --- -->
+    <div id="chat-window">
+        <div class="chat-header">
+            <span>✨ Happy AI Assistant</span>
+            <span onclick="toggleChatWindow()" style="cursor: pointer;">×</span>
+        </div>
+        <div id="chat-content" style="flex: 1; padding: 15px; overflow-y: auto; background: #fdfdfd;"></div>
+        <div style="padding: 15px; border-top: 1px solid #eee; display: flex;">
+            <input type="text" id="user-input" placeholder="Ask me anything..." style="flex: 1; border: none; outline: none;">
+            <button onclick="sendMessage()" style="background: var(--purple-ai); color: white; border: none; padding: 5px 15px; border-radius: 5px; cursor: pointer;">Send</button>
+        </div>
+    </div>
+
+    <div id="ai-chat-container" onclick="toggleChatWindow()">
+        <div class="ai-bubble">
+            <img src="{{ url_for('static', filename='social media/dentist-icon.png') }}" style="width: 55px; height: 55px; border-radius: 50%;">
+        </div>
+        <div class="ai-label">Chat with Happy AI ✨</div>
+    </div>
+
+    <script>
+        let hasWelcomed = false;
+
+        function toggleChatWindow() {
+            const chat = document.getElementById("chat-window");
+            const content = document.getElementById("chat-content");
+            chat.style.display = (chat.style.display === "none" || chat.style.display === "") ? "flex" : "none";
+            
+            if (chat.style.display === "flex" && !hasWelcomed) {
+                setTimeout(() => {
+                    content.innerHTML += `<div style="margin-bottom: 10px;"><span style="background: #e1bee7; color: #4a148c; padding: 8px 12px; border-radius: 10px; display: inline-block;">Hello! I am your Happy AI assistant. How can I help you today? 😊</span></div>`;
+                    hasWelcomed = true;
+                }, 400); 
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById("user-input");
+            const content = document.getElementById("chat-content");
+            const text = input.value.trim();
+            if(text) {
+                content.innerHTML += `<div style="text-align: right; margin-bottom: 10px;"><span style="background: var(--purple-ai); color: white; padding: 8px 12px; border-radius: 10px; display: inline-block;">${text}</span></div>`;
+                input.value = "";
+                fetch('/chat', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({message: text})
+                })
+                .then(res => res.json())
+                .then(data => {
+                    content.innerHTML += `<div style="margin-bottom: 10px;"><span style="background: #e1bee7; color: #4a148c; padding: 8px 12px; border-radius: 10px; display: inline-block;">${data.response}</span></div>`;
+                    content.scrollTop = content.scrollHeight;
+                });
+            }
+        }
+    </script>
+</body>
+</html>

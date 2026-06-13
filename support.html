@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Center | Happy Dental Hospital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --maroon: #800000;
+            --dark-blue: #2c3e50; 
+            --cream: #fffaf0;
+            --text-grey: #555;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #fff; color: var(--dark-blue); line-height: 1.6; }
+
+        /* --- NAVIGATION --- */
+        header {
+            background: var(--dark-blue);
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-container { display: flex; align-items: center; gap: 15px; }
+        .logo { height: 45px; border-radius: 5px; }
+        .nav-links a { text-decoration: none; color: white; font-weight: 500; font-size: 0.9rem; }
+
+        /* --- SUPPORT HEADER --- */
+        .page-title {
+            padding: 60px 8% 30px;
+            text-align: center;
+            background: var(--cream);
+        }
+        .page-title h1 { color: var(--maroon); font-size: 2.5rem; }
+        .page-title p { color: var(--text-grey); max-width: 600px; margin: 10px auto; }
+
+        /* --- QUICK HELP GRID --- */
+        .support-grid {
+            padding: 40px 8%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .support-card {
+            padding: 35px;
+            border-radius: 15px;
+            background: #fff;
+            border: 1px solid #eee;
+            transition: 0.3s;
+            text-align: center;
+        }
+        .support-card:hover { border-color: var(--maroon); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .support-card i { font-size: 2.5rem; color: var(--maroon); margin-bottom: 20px; }
+        .support-card h3 { margin-bottom: 12px; color: var(--dark-blue); }
+        .support-card p { font-size: 0.9rem; color: var(--text-grey); margin-bottom: 15px; }
+        .support-card .contact-link { color: var(--maroon); font-weight: 700; text-decoration: none; font-size: 1.1rem; }
+
+        /* --- READABLE FAQ SECTION --- */
+        .info-section {
+            padding: 60px 8%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .info-block {
+            margin-bottom: 40px;
+        }
+        .info-block h2 { 
+            color: var(--maroon); 
+            border-left: 5px solid var(--maroon); 
+            padding-left: 15px; 
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        .qa { margin-bottom: 25px; }
+        .qa h4 { color: var(--dark-blue); margin-bottom: 5px; font-weight: 600; }
+        .qa p { color: var(--text-grey); font-size: 0.95rem; }
+
+        footer { background: var(--maroon); color: white; padding: 30px; text-align: center; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="../static/social media/logo.jpeg" class="logo">
+            <h2 style="font-size: 1.1rem; color: #fff;">HAPPY DENTAL</h2>
+        </div>
+        <div class="nav-links">
+            <a href="/index"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </header>
+
+    <section class="page-title">
+        <h1>Support Center</h1>
+        <p>Find quick answers to common questions or reach our medical team directly.</p>
+    </section>
+
+    <!-- Quick Action Cards -->
+    <div class="support-grid">
+        <div class="support-card">
+            <i class="fa-solid fa-phone-volume"></i>
+            <h3>Emergency Line</h3>
+            <p>Immediate assistance for acute dental pain or injury.</p>
+            <a href="tel:+916378579899" class="contact-link">+91 63785 79899</a>
+        </div>
+
+        <div class="support-card">
+            <i class="fa-solid fa-envelope-open-text"></i>
+            <h3>General Inquiries</h3>
+            <p>For questions about billing, records, or services.</p>
+            <a href="mailto:happydentalclinic@gmail.com" class="contact-link">Email Us Directly</a>
+        </div>
+
+        <div class="support-card">
+            <i class="fa-solid fa-clock"></i>
+            <h3>Timing & Location</h3>
+            <p>Mon - Sat: 10:00 AM - 08:00 PM</p>
+            <span class="contact-link" style="color: var(--dark-blue)">Mumbai, Maharashtra</span>
+        </div>
+    </div>
+
+    <!-- Simple Readable Info -->
+    <div class="info-section">
+        <div class="info-block">
+            <h2>Common Questions</h2>
+            
+            <div class="qa">
+                <h4>What should I do in a dental emergency?</h4>
+                <p>Call our 24/7 emergency line immediately. For tooth loss, keep the tooth moist in a container of milk and visit us within 60 minutes.</p>
+            </div>
+
+            <div class="qa">
+                <h4>How can I access my medical reports?</h4>
+                <p>Log in to the <strong>Patient Portal</strong> using your registered mobile number to view and download your digital X-rays and prescriptions.</p>
+            </div>
+
+            <div class="qa">
+                <h4>Do you offer cashless insurance?</h4>
+                <p>We partner with major health insurance providers. Please bring your insurance card during your visit for a pre-check.</p>
+            </div>
+        </div>
+
+        <div class="info-block">
+            <h2>Visit Guidelines</h2>
+            <div class="qa">
+                <p><i class="fa-solid fa-circle-check" style="color: var(--maroon)"></i> Please arrive 10 minutes prior to your scheduled appointment.</p>
+                <p><i class="fa-solid fa-circle-check" style="color: var(--maroon)"></i> Carry your previous dental history or current medications list.</p>
+                <p><i class="fa-solid fa-circle-check" style="color: var(--maroon)"></i> Cancellations must be made 24 hours in advance.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Happy Dental Hospital | Providing Quality Dental Care Since 2019</p>
+    </footer>
+
+</body>
+</html>

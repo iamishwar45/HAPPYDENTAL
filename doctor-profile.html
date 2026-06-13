@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ doctor.name }} - Happy Dental Hospital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --maroon: #800000;
+            --purple: #7b1fa2;
+            --dark-header: #2c3e50; 
+            --bg-light: #fdf2f2;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-light); overflow-x: hidden; }
+
+        /* --- NAVIGATION (Matches Index/About/Doctors) --- */
+        header {
+            background: var(--dark-header);
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-container { display: flex; align-items: center; gap: 15px; }
+        .logo-img { height: 50px; border-radius: 5px; }
+        
+        .nav-links { list-style: none; display: flex; gap: 25px; align-items: center; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: #ffffff; 
+            font-weight: 500; 
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: #f39c12; }
+        
+        .btn-nav {
+            background: var(--maroon);
+            color: white !important;
+            padding: 10px 22px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        /* --- PROFILE SECTION --- */
+        .profile-wrapper {
+            padding: 80px 8%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-card {
+            background: white;
+            display: flex;
+            width: 100%;
+            max-width: 1000px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-left: 10px solid var(--maroon);
+        }
+
+        .profile-img {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-details {
+            flex: 1.5;
+            padding: 50px;
+        }
+
+        .profile-details h1 {
+            color: var(--maroon);
+            margin-bottom: 5px;
+            font-size: 2.5rem;
+        }
+
+        .spec-tag {
+            background: var(--purple);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .bio-info { margin-bottom: 15px; font-size: 1.1rem; color: #333; }
+        .bio-info b { color: var(--maroon); min-width: 120px; display: inline-block; }
+
+        /* Social Media Icons for Doctor */
+        .doc-social {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+        }
+        .doc-social a {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-light);
+            color: var(--maroon);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 1.2rem;
+            border: 1px solid #ddd;
+        }
+        .doc-social a:hover {
+            background: var(--maroon);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .btn-book {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 35px;
+            background-color: var(--maroon);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-book:hover { background-color: var(--purple); }
+
+        /* --- FOOTER (Matches Index/About/Services) --- */
+        footer { 
+            background: var(--maroon); 
+            color: white; 
+            padding: 60px 8%; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 40px; 
+            margin-top: 50px;
+        }
+        footer h3 { 
+            margin-bottom: 20px; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            border-bottom: 1px solid rgba(255,255,255,0.2); 
+            padding-bottom: 10px; 
+        }
+        footer p, footer li { font-size: 0.9rem; opacity: 0.8; margin-bottom: 10px; list-style: none; }
+        footer i { margin-right: 10px; }
+
+        @media (max-width: 768px) {
+            .profile-card { flex-direction: column; }
+            .profile-img { max-width: 100%; height: 350px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='social media/logo.jpeg') }}" class="logo-img">
+            <h2 style="font-size: 1.2rem; color: #ffffff;">HAPPY DENTAL</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/index">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/doctors">Doctors</a></li>
+            <li><a href="/awards">Awards</a></li>
+            <li><a href="/appointment" class="btn-nav">Book Appointment</a></li>
+        </ul>
+    </header>
+
+    <section class="profile-wrapper">
+        <div class="profile-card">
+            <div class="profile-img">
+                <img src="{{ url_for('static', filename='social media/' + doctor.image) }}" alt="{{ doctor.name }}">
+            </div>
+            <div class="profile-details">
+                <span class="spec-tag">{{ doctor.specialization }}</span>
+                <h1>{{ doctor.name }}</h1>
+                <hr style="border: 0; border-top: 2px solid #eee; margin: 20px 0;">
+                
+                <div class="bio-info"><b>Qualification:</b> {{ doctor.qualification }}</div>
+                <div class="bio-info"><b>Experience:</b> {{ doctor.experience }}</div>
+                <div class="bio-info"><b>Language:</b> English, Hindi, Marathi</div>
+                <div class="bio-info"><b>Availability:</b> Mon - Sat (10AM - 8PM)</div>
+
+                <p style="margin-top: 20px; line-height: 1.6; color: #666;">
+                    Expert in providing painless dental treatments and dedicated to patient care at Happy Dental Hospital.
+                </p>
+
+                <div class="doc-social">
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+
+                <a href="/appointment" class="btn-book">Book Appointment Now</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <h3>* Why Choose Us</h3>
+            <ul>
+                <li><i class="fa-solid fa-check"></i> 24/7 Emergency Calls</li>
+                <li><i class="fa-solid fa-check"></i> Dental Special Offers</li>
+                <li><i class="fa-solid fa-check"></i> Painless Procedures</li>
+                <li><i class="fa-solid fa-check"></i> Affordable Dentistry</li>
+            </ul>
+        </div>
+        <div>
+            <h3>* Practice Hours</h3>
+            <p><i class="fa-solid fa-clock"></i> Mon - Sat: 10:00 AM - 08:00 PM</p>
+            <p><i class="fa-solid fa-calendar-xmark"></i> Sunday: Closed</p>
+            <p><i class="fa-solid fa-phone-volume"></i> Emergency: 24/7 Available</p>
+        </div>
+        <div>
+            <h3>* Contact Info</h3>
+            <p><i class="fa-solid fa-location-dot"></i> 1-21-7/1, Mumbai, Maharashtra</p>
+            <p><i class="fa-solid fa-phone"></i> +91 9121557571</p>
+            <p><i class="fa-solid fa-envelope"></i> happydentalclinic@gmail.com</p>
+            <div style="display: flex; gap: 15px; font-size: 1.2rem; margin-top: 10px;">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

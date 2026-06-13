@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard | Happy Dental</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --maroon: #800000;
+            --dark-blue: #2c3e50;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--light-bg); display: flex; height: 100vh; overflow: hidden; }
+
+        /* --- SIDEBAR --- */
+        .sidebar {
+            width: 260px;
+            background: var(--dark-blue);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .sidebar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            padding: 10px;
+        }
+        .sidebar-brand img { height: 40px; border-radius: 5px; }
+        .nav-menu { list-style: none; flex-grow: 1; }
+        .nav-item { margin-bottom: 15px; }
+        .nav-item a {
+            color: #bdc3c7;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .nav-item a:hover, .nav-item.active a {
+            background: var(--maroon);
+            color: white;
+        }
+
+        /* --- MAIN CONTENT --- */
+        .main-content { flex: 1; overflow-y: auto; padding: 30px; }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .user-profile-top { display: flex; align-items: center; gap: 15px; }
+
+        /* --- STATS GRID --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--maroon);
+        }
+        .stat-card h3 { font-size: 0.9rem; color: #7f8c8d; }
+        .stat-card p { font-size: 1.5rem; font-weight: 700; color: var(--dark-blue); }
+
+        /* --- INFO SECTIONS --- */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        .data-table, .health-tips {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th { text-align: left; padding: 12px; border-bottom: 2px solid var(--light-bg); color: #7f8c8d; }
+        td { padding: 12px; border-bottom: 1px solid var(--light-bg); font-size: 0.9rem; }
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .tip-item { margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px dashed #eee; }
+        .tip-item h4 { font-size: 0.95rem; color: var(--maroon); }
+        .tip-item p { font-size: 0.85rem; color: #555; }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <img src="../static/social media/logo.jpeg" alt="Logo">
+            <h3 style="font-size: 1rem;">HAPPY DENTAL</h3>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item active"><a href="#"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
+            <li class="nav-item"><a href="/appointment"><i class="fa-solid fa-calendar-check"></i> Book New</a></li>
+            <li class="nav-item"><a href="/index"><i class="fa-solid fa-house"></i> Home Page</a></li>
+            <li class="nav-item" style="margin-top: 50px;"><a href="/logout" style="color: #ff7675;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <div>
+                <h1>Welcome, {{ username }}!</h1>
+                <p style="color: #7f8c8d;">Here is your dental health overview.</p>
+            </div>
+            <div class="user-profile-top">
+                <i class="fa-solid fa-circle-user" style="font-size: 2.5rem; color: var(--maroon);"></i>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Visits</h3>
+                <p>04</p>
+            </div>
+            <div class="stat-card">
+                <h3>Next Checkup</h3>
+                <p>15 May 2026</p>
+            </div>
+            <div class="stat-card">
+                <h3>Pending Bills</h3>
+                <p>₹ 0.00</p>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <!-- Appointment History -->
+            <div class="data-table">
+                <h2 style="font-size: 1.2rem; color: var(--dark-blue);">Recent Appointments</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Doctor</th>
+                            <th>Treatment</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12 Apr 2026</td>
+                            <td>Dr. Ishwar Singh</td>
+                            <td>Root Canal</td>
+                            <td><span class="status-badge">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>20 Mar 2026</td>
+                            <td>Dr. Kashish</td>
+                            <td>Teeth Whitening</td>
+                            <td><span class="status-badge">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>05 Mar 2026</td>
+                            <td>Dr. Siddhesh</td>
+                            <td>Routine Checkup</td>
+                            <td><span class="status-badge">Completed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Health Tips Sidebar -->
+            <div class="health-tips">
+                <h2 style="font-size: 1.2rem; color: var(--dark-blue); margin-bottom: 20px;">Dental Tips</h2>
+                <div class="tip-item">
+                    <h4>Brush Twice Daily</h4>
+                    <p>Use a fluoride toothpaste to prevent cavities and strengthen enamel.</p>
+                </div>
+                <div class="tip-item">
+                    <h4>Avoid Sugary Drinks</h4>
+                    <p>Limit soda and fruit juices to protect your teeth from acid erosion.</p>
+                </div>
+                <div class="tip-item">
+                    <h4>Floss Regularly</h4>
+                    <p>Flossing removes plaque from between teeth where brushes can't reach.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

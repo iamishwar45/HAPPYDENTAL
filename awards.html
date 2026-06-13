@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awards - Happy Dental Hospital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --maroon: #800000;
+            --dark-header: #2c3e50; 
+            --dark: #1a1a1a;
+            --bg-light: #fdf2f2;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-light); color: var(--dark); overflow-x: hidden; }
+
+        /* --- NAVIGATION --- */
+        header {
+            background: var(--dark-header);
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-container { display: flex; align-items: center; gap: 15px; }
+        .logo-img { height: 50px; border-radius: 5px; }
+        
+        .nav-links { list-style: none; display: flex; gap: 25px; align-items: center; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: #ffffff; 
+            font-weight: 500; 
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: #f39c12; }
+        
+        .btn-nav {
+            background: var(--maroon);
+            color: white !important;
+            padding: 10px 22px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        /* --- AWARDS SECTION --- */
+        .awards-main {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .awards-main h1 {
+            color: var(--maroon);
+            font-size: 2.8rem;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .award-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .award-card {
+            background: white;
+            width: 300px;
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border: 2px solid var(--maroon);
+            transition: 0.3s;
+        }
+
+        .award-card:hover {
+            transform: translateY(-10px);
+            background-color: #fffafa;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        /* Changed icon color to Maroon for a professional look without the AI Purple */
+        .award-card i {
+            font-size: 3.5rem;
+            color: var(--maroon); 
+            margin-bottom: 20px;
+        }
+
+        .award-card h3 {
+            color: var(--maroon);
+            margin-bottom: 10px;
+        }
+
+        .award-card p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* --- FOOTER --- */
+        footer { 
+            background: var(--maroon); 
+            color: white; 
+            padding: 60px 8%; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 40px; 
+        }
+        footer h3 { 
+            margin-bottom: 20px; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            border-bottom: 1px solid rgba(255,255,255,0.2); 
+            padding-bottom: 10px; 
+        }
+        footer p, footer li { font-size: 0.9rem; opacity: 0.8; margin-bottom: 10px; list-style: none; }
+        footer i { margin-right: 10px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='social media/logo.jpeg') }}" class="logo-img">
+            <h2 style="font-size: 1.2rem; color: #ffffff;">HAPPY DENTAL</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/index">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/doctors">Doctors</a></li>
+            <li><a href="/awards">Awards</a></li>
+            <li><a href="/appointment" class="btn-nav">Book Appointment</a></li>
+        </ul>
+    </header>
+
+    <section class="awards-main">
+        <h1>*** OUR AWARDS & ACHIEVEMENTS ***</h1>
+        <div class="award-grid">
+            
+            <div class="award-card">
+                <i class="fa-solid fa-trophy"></i>
+                <h3>Best Clinic 2024</h3>
+                <p>Awarded for excellence in clinical hygiene and patient safety standards in Mumbai.</p>
+            </div>
+
+            <div class="award-card">
+                <i class="fa-solid fa-medal"></i>
+                <h3>Gold Medalist</h3>
+                <p>Recognizing the surgical excellence and academic achievements of our specialist team.</p>
+            </div>
+
+            <div class="award-card">
+                <i class="fa-solid fa-crown"></i>
+                <h3>Top Service Award</h3>
+                <p>Voted the #1 most trusted dental hospital for affordable and quality care.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <h3>* Why Choose Us</h3>
+            <ul>
+                <li><i class="fa-solid fa-check"></i> 24/7 Emergency Calls</li>
+                <li><i class="fa-solid fa-check"></i> Dental Special Offers</li>
+                <li><i class="fa-solid fa-check"></i> Painless Procedures</li>
+                <li><i class="fa-solid fa-check"></i> Affordable Dentistry</li>
+            </ul>
+        </div>
+        <div>
+            <h3>* Practice Hours</h3>
+            <p><i class="fa-solid fa-clock"></i> Mon - Sat: 10:00 AM - 08:00 PM</p>
+            <p><i class="fa-solid fa-calendar-xmark"></i> Sunday: Closed</p>
+            <p><i class="fa-solid fa-phone-volume"></i> Emergency: 24/7 Available</p>
+        </div>
+        <div>
+            <h3>* Contact Info</h3>
+            <p><i class="fa-solid fa-location-dot"></i> 1-21-7/1, Mumbai, Maharashtra</p>
+            <p><i class="fa-solid fa-phone"></i> +91 6378579899</p>
+            <p><i class="fa-solid fa-envelope"></i> happydentalclinic@gmail.com</p>
+            <div style="display: flex; gap: 15px; font-size: 1.2rem; margin-top: 10px;">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
